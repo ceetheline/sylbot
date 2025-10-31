@@ -10,14 +10,17 @@ import time
 import asyncio
 from collections import defaultdict
 from datetime import datetime
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class ChristmasEvent(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         
         # Configuration
-        self.drop_channel_id = 1367912811648389172
-        self.spam_channel_ids = [1367912811648389175]
+        self.drop_channel_id = int(os.getenv("DROP_CHANNEL_ID"))
+        self.spam_channel_ids = [int(x) for x in os.getenv("SPAM_CHANNEL_IDS").split(",")]
         
         # Activity tracking
         self.activity_tracker = defaultdict(lambda: {"users": set(), "count": 0, "last_drop": 0})
@@ -34,11 +37,11 @@ class ChristmasEvent(commands.Cog):
         ]
         
         # Activity settings
-        self.min_messages = 8
+        self.min_messages = 10
         self.max_messages = 15
         self.min_unique_users = 2
-        self.same_user_cooldown = 1
-        self.drop_cooldown = 10
+        self.same_user_cooldown = 3
+        self.drop_cooldown = 15
         
         # Event active status
         self.event_active = False

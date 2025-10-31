@@ -6,8 +6,7 @@ import threading
 from typing import Dict, Any, List
 
 # Store JSON in the same data directory as this module
-DATA_PATH = r"C:\Users\CELIN\Pictures\sylbott\sylbot\data\gifts_data.json"
-DATA_DIR = os.path.dirname(__file__)
+DATA_DIR = os.path.join(os.getcwd(), "data")
 DATA_FILE = os.path.join(DATA_DIR, "gifts_data.json")
 
 # In-memory structures (match the example style)
