@@ -2,12 +2,6 @@ import discord
 from discord.ext import commands
 import os
 import asyncio
-<<<<<<< HEAD
-from dotenv import load_dotenv
-
-load_dotenv()
-=======
->>>>>>> 86bc98ee0541df934cf3088dda0db2b52aeb3ad5
 
 # Bot configuration
 intents = discord.Intents.default()
@@ -16,11 +10,6 @@ intents.members = True
 
 bot = commands.Bot(command_prefix="!", intents=intents)
 
-<<<<<<< HEAD
-TOKEN = os.getenv("DISCORD_TOKEN")
-
-=======
->>>>>>> 86bc98ee0541df934cf3088dda0db2b52aeb3ad5
 @bot.event
 async def on_ready():
     print(f"✅ Bot is online!")
@@ -100,11 +89,7 @@ async def main():
     async with bot:
         await load_cogs()
         # REPLACE WITH YOUR BOT TOKEN
-<<<<<<< HEAD
-        await bot.start(TOKEN)
-=======
         await bot.start("MTM3NzY3OTQyMjg0ODc2NTk4Mg.GYKcKH.ZSjjmElf0K26hHmAQPTcCBtIOqh5Gwgxa19A5E")
->>>>>>> 86bc98ee0541df934cf3088dda0db2b52aeb3ad5
 
 
 
